@@ -19,6 +19,10 @@ public class MonthInterval {
             "November".toUpperCase(),
             "December".toUpperCase()
     };
+
+    /**
+     * Default Constructor
+     */
     public MonthInterval(){
     }
 
