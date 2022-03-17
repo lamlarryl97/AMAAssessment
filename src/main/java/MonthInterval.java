@@ -32,7 +32,7 @@ public class MonthInterval {
      */
     public void getInputs() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Date Format: MM/DD/YYY");
+        System.out.println("Date Format: MM/DD/YYYY");
         System.out.println("Input Date 1 :");
         String input1 = scan.next();
         String[] splitString1 = input1.split("/");
