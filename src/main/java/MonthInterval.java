@@ -149,7 +149,6 @@ public class MonthInterval {
 
     }
 
-
     /**
      * This method is used to determine if a year is a leap year.
      *
