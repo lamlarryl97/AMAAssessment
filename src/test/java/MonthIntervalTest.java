@@ -14,6 +14,7 @@ public class MonthIntervalTest {
         List<String> results = monthInterval.generateMonthsInInterval(date1, date2);
         List<String> expectedResults = new ArrayList<String>();
         expectedResults.add("JANUARY 2022");
+        expectedResults.add("FEBRUARY 2022");
         assertEquals(results,expectedResults);
     }
 
