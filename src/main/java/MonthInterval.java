@@ -38,16 +38,16 @@ public class MonthInterval {
         String[] splitString1 = input1.split("/");
         validateDatesAreValid(splitString1);
         date1 = LocalDate.of(Integer.valueOf(splitString1[2]),
-                Month.valueOf(mon[Integer.parseInt(splitString1[1])]),
-                Integer.valueOf(splitString1[0]));
+                Month.valueOf(mon[Integer.parseInt(splitString1[0])]),
+                Integer.valueOf(splitString1[1]));
 
         System.out.print("Input Date 2: ");
         String input2 = scan.next();
         String[] splitString2 = input2.split("/");
         validateDatesAreValid(splitString2);
         date2 = LocalDate.of(Integer.valueOf(splitString2[2]),
-                Month.valueOf(mon[Integer.parseInt(splitString2[1])]),
-                Integer.valueOf(splitString2[0]));
+                Month.valueOf(mon[Integer.parseInt(splitString2[0])]),
+                Integer.valueOf(splitString2[1]));
 
         validateDate1isBeforeDate2();
     }
@@ -123,34 +123,32 @@ public class MonthInterval {
 
         boolean error = false;
 
-        while (!error) {
-            if (month.length() != 2) {
-                System.out.println("Month Format incorrect");
-                error = true;
-            }
-            if (Integer.valueOf(month) < 1 || Integer.valueOf(month) > 12) {
-                System.out.println("Month is out of range");
-                error = true;
-            }
-            if (year.length() != 4) {
-                System.out.println("Year format is incorrect");
-                error = true;
-            }
-            if (day.length() != 2) {
-                System.out.println("Day format is incorrect");
-                error = true;
-            }
-
-            if (Integer.valueOf(day) < 0 || Integer.valueOf(day) > (Integer) monthDayMap.get(Integer.valueOf(month))) {
-                System.out.println(("Day is out of range"));
-                error = true;
-            }
+        if (month.length() != 2) {
+            System.out.println("Month Format incorrect");
+            error = true;
         }
-
+        if (Integer.valueOf(month) < 1 || Integer.valueOf(month) > 12) {
+            System.out.println("Month is out of range");
+            error = true;
+        }
+        if (year.length() != 4) {
+            System.out.println("Year format is incorrect");
+            error = true;
+        }
+        if (day.length() != 2) {
+            System.out.println("Day format is incorrect");
+            error = true;
+        }
+        if (Integer.valueOf(day) < 0 || monthDayMap.containsKey(Integer.valueOf(month)) ? Integer.valueOf(day) > (Integer) monthDayMap.get(Integer.valueOf(month)) : true) {
+            System.out.println(("Day is out of range"));
+            error = true;
+        }
         if (error) {
             System.exit(-1);
         }
+
     }
+
 
     /**
      * This method is used to determine if a year is a leap year.
